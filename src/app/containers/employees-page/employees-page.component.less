@@ -1,0 +1,65 @@
+.label-container {
+    margin: 0 auto;
+    max-width: 800px; 
+}
+.maintenance-container {
+    .maintenance-body {
+        .maintenance-table{
+            border-collapse: separate;
+            border-spacing: 0 10px;
+            margin: 0 auto;
+            max-width: 800px;
+            text-align: center;
+            thead {
+                th{
+                    text-align: center;
+                    border: 0;
+                    color: #5f5f5f;
+                    font-size: 12px;
+                  }
+            }
+            tbody {
+                tr {
+                    td {
+                        border-top: 1px solid #CCCCCC;
+                        border-bottom: 1px solid #CCCCCC;
+                        background: #FFFFFF;
+                        width: 29%;
+                        &:first-child {
+                            border-left: 1px solid #CCCCCC;
+                            border-top-left-radius: 6px;
+                            border-bottom-left-radius: 6px;
+                        }  
+                        &:nth-last-child(2) {
+                            border-right: 1px solid #CCCCCC;
+                            border-top-right-radius: 6px;
+                            border-bottom-right-radius: 6px;
+                        }
+                        &:last-child{
+                            border:0;
+                            text-align: initial;
+                            width: 13%;
+                            min-width: 100px;
+                            position: absolute;
+                            img {
+                                margin: 0 auto;
+                                display: block;
+                                width: 20px;
+                                height: 20px;
+                                cursor: pointer;
+                            }
+                            // &.item-show {
+                            //   display: table-cell; 
+                            // }
+                          }
+                    }
+                }
+            } 
+          }
+    } 
+}
+
+.btn-container {
+    display: flex;
+    justify-content: center;
+}

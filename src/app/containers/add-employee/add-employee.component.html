@@ -1,0 +1,41 @@
+<div class="container">
+    <div class="row">
+        <h2>Create Employee</h2>
+    </div>
+</div>
+<div class="container" *ngIf="showCreateMessage">
+    <div class="row">
+        <div class="col-xs-12">
+            <span class="label" [ngClass]="createResponse?.success ? 'label-success':'label-danger'">
+                {{createResponse?.msg}}
+            </span>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <form [formGroup]="employeeFormGroup" autocomplete="off">
+        <div class="row">
+            <div class="form-group col-md-3 col-xs-12">
+                <input type="number" placeholder="Employee ID" [ngClass]="{'required': employeeFormGroup.get('id').invalid && employeeFormGroup.get('id').dirty}" class="form-control" formControlName="id"/>
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group col-md-6 col-xs-12">
+                <input type="text" placeholder="First Name" [ngClass]="{'required': employeeFormGroup.get('firstName').invalid && employeeFormGroup.get('firstName').dirty}" class="form-control" formControlName="firstName"/>
+            </div>
+            <div class="form-group col-md-6 col-xs-12">
+                <input type="text" placeholder="Last Name" [ngClass]="{'required': employeeFormGroup.get('lastName').invalid && employeeFormGroup.get('lastName').dirty}" class="form-control" formControlName="lastName"/>
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group col-md-6 col-xs-12">
+                <input type="email" placeholder="E-mail" [ngClass]="{'required': employeeFormGroup.get('email').invalid && employeeFormGroup.get('email').dirty}" class="form-control" formControlName="email"/>
+            </div>
+        </div>
+    </form>
+</div>
+
+<div class="container btn-container">
+    <button type="button" class="btn" routerLink="/">Go Back</button>
+    <button type="button" class="btn btn-info" ngcl [disabled]="employeeFormGroup.invalid || !isUniqueID" (click)="onClickCreate()">Create Employee</button>
+</div>

@@ -1,0 +1,65 @@
+<div class="container">
+    <div class="row">
+        <h2>Employee</h2>
+    </div>
+</div>
+
+<ng-container *ngIf="employeeList?.length > 0">
+    <div class="container maintenance-container">
+        <div class="row maintenance-body">
+            <div *ngIf="showDeleteMessage" class="col-xs-12">
+                <div class="label-container">
+                    <span class="label" [ngClass]="deleteResponse?.success ? 'label-success':'label-danger'">
+                        {{deleteResponse?.msg}}
+                    </span>
+                </div>
+            </div>
+            <div class="col-xs-12">
+                <table class="table table-borderless maintenance-table">
+                  <thead>
+                    <tr>
+                      <th>Employee ID</th>
+                      <th>Name</th>
+                      <th>E-mail</th>
+                      <th></th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                      <tr *ngFor="let employee of employeeList; let i = index;">
+                          <td>
+                              {{employee?.id}}
+                          </td>
+                          <td>
+                              {{employee?.firstName}} {{employee?.lastName}}
+                          </td>
+                          <td>
+                            {{employee?.email}}
+                          </td>
+                          <td>
+                              <img src="../../../assets/images/delete.png" (click)="deleteEmployee(employee?.id, i)" alt="delete">
+                          </td>
+                      </tr>
+                  </tbody>
+                </table>
+              </div>
+        </div>
+    </div>
+</ng-container>
+
+<ng-container *ngIf="employeeList?.length <= 0">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <h4 class="text-center">No Data</h4>
+            </div>
+        </div>
+    </div>
+</ng-container>
+
+<div class="container btn-container">
+    <div class="row">
+        <button type="button" class="btn btn-info" (click)="onClickCreate()">Create Employee</button>
+    </div>
+</div>
+
+
